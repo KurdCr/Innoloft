@@ -56,7 +56,10 @@ namespace Innoloft.Repositories
         public async Task AddParticiptant(User user, Event eventInstance)
         {
             IEnumerable<User> participtants = eventInstance.AddParticiptant(user);
+            Console.WriteLine(participtants.Count());
             eventInstance.Users = participtants;
+            Console.WriteLine(eventInstance);
+            Console.WriteLine(eventInstance.Users.Count());
             await UpdateAsync(eventInstance);
         }
     }

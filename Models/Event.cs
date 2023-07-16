@@ -42,11 +42,12 @@ namespace Innoloft.Models
         internal IEnumerable<User> AddParticiptant(User user)
         {
             // Do some checks before letting users participate
-            if (user.Id != EventOwnerId)
+            //For example event owner can't participate to their own event 
+            /*if (user.Id != EventOwnerId)
             {
                 Users = Users.Append(user);
-            }
-            Users.Append(user);
+            }*/
+            Users = Users.Append(user);
             return Users;
 
         }

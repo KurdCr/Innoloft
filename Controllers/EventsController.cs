@@ -72,7 +72,7 @@ namespace Innoloft.Controllers
         {
             if (await _serviceManager.UserService.GetByIdAsync(eventDtoRequest.EventOwnerId) == null)
             {
-                return NotFound(ModelState);
+                return BadRequest("Event Owner Id doesn't correspond to any user Id");
             }
             EventDtoResponse eventDtoResponse = await _serviceManager.EventService.CreateAsync(eventDtoRequest);
             _cache.Remove(eventsListCacheKey);
@@ -106,6 +106,10 @@ namespace Innoloft.Controllers
         [HttpGet("{eventId}/participants")]
         public async Task<ActionResult<EventParticipantResponse>> GetParticipants(string eventId)
         {
+            if (await _serviceManager.EventService.GetByIdAsync(eventId) == null)
+            {
+                return NotFound(ModelState);
+            }
             List<EventParticipantResponse> eventParticipantResponses;
             if (_cache.TryGetValue(participantsListCacheKey, out eventParticipantResponses))
             {
