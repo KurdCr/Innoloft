@@ -1,6 +1,7 @@
 # Project Name
 
 Backend-Application for Innoloft
+Link for tests >> https://github.com/KurdCr/Innoloft.Tests
 
 ## Description
 
