@@ -14,6 +14,8 @@ This repository contains my solution for the Innoloft assessment. The goal of th
 - [Note](#note)
 
 ## Implementation Details
+![Diagram](https://github.com/KurdCr/Innoloft/assets/56204590/0b6933c3-2654-4b80-b95a-48c61a3c36ff)
+(https://miro.com/app/board/uXjVM1toGv8=/?share_link_id=522548971133)
 
 In this project, I have used the repository-service-controller pattern with a domain-rich model approach. This design pattern helps separate concerns and maintain a clean architecture.
 
