@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NG97yV9rqz6sAwBnzJo5VorkfWxYXGCGgZKwUrY/4eqV8v90zEiFthijAb+i3/h0y7myhH/Pvz+Z9fP7+/Of4g==",
+  "dgSpecHash": "AOdc9XG1KpAdP9YMDnhv9hVav6u72is3rdkGFucwziVJ+UOeXQLFIo+2WhS//P4pWoVvbukSyNWEf73i+wN/WQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft.csproj",
+  "projectFilePath": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft\\Innoloft.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\balen\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\balen\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

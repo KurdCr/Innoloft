@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Innoloft.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230716163002_inital")]
+    [Migration("20230716181848_inital")]
     partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,7 +78,6 @@ namespace Innoloft.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime?>("StartDate")
@@ -100,7 +99,6 @@ namespace Innoloft.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
@@ -109,11 +107,9 @@ namespace Innoloft.Migrations
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Website")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");

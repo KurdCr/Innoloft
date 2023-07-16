@@ -32,8 +32,8 @@ namespace Innoloft.Models
         public string Title { get; private set; }
         [Required(ErrorMessage = "Description is required")]
         [StringLength(300, ErrorMessage = "Description can't be longer than 300 characters")]
-        public string Description { get; private set; }
-        public string Location { get; private set; }
+        public string? Description { get; private set; }
+        public string? Location { get; private set; }
         public DateTime? StartDate { get; private set; }
         public DateTime? EndDate { get; private set; }
         public string? EventOwnerId { get; private set; }
@@ -58,6 +58,7 @@ namespace Innoloft.Models
             this.Location = eventDtoRequest.Location;
             this.StartDate = eventDtoRequest.StartDate;
             this.EndDate = eventDtoRequest.EndDate;
+            this.EventOwnerId = eventDtoRequest.EventOwnerId;
 
             return this;
         }

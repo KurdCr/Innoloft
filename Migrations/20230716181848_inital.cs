@@ -19,7 +19,7 @@ namespace Innoloft.Migrations
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     Title = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     Description = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false),
-                    Location = table.Column<string>(type: "longtext", nullable: false),
+                    Location = table.Column<string>(type: "longtext", nullable: true),
                     StartDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     EndDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     EventOwnerId = table.Column<string>(type: "longtext", nullable: true)
@@ -36,9 +36,9 @@ namespace Innoloft.Migrations
                 {
                     Id = table.Column<string>(type: "varchar(255)", nullable: false),
                     Name = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    Email = table.Column<string>(type: "longtext", nullable: false),
-                    Phone = table.Column<string>(type: "longtext", nullable: false),
-                    Website = table.Column<string>(type: "longtext", nullable: false)
+                    Email = table.Column<string>(type: "longtext", nullable: true),
+                    Phone = table.Column<string>(type: "longtext", nullable: true),
+                    Website = table.Column<string>(type: "longtext", nullable: true)
                 },
                 constraints: table =>
                 {

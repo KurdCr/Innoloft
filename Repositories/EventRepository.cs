@@ -27,7 +27,6 @@ namespace Innoloft.Repositories
 
         public async Task<Event> InsertAsync(Event eventInstance)
         {
-
             _dbContext.Events.Add(eventInstance);
             await _dbContext.SaveChangesAsync();
             return eventInstance;

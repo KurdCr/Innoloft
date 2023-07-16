@@ -58,6 +58,10 @@ namespace Innoloft.Controllers
         [HttpGet("{invitationId}")]
         public async Task<ActionResult<InvitationDtoResponse>> GetInvitation(string invitationId)
         {
+            if (await _serviceManager.InvitationService.GetByIdAsync(invitationId) == null)
+            {
+                return NotFound(ModelState);
+            }
             InvitationDtoResponse invitationDtoResponse = await _serviceManager.InvitationService.GetByIdAsync(invitationId);
             return Ok(invitationDtoResponse);
         }
@@ -65,6 +69,14 @@ namespace Innoloft.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateInvitation([FromBody] InvitationDtoRequest invitationDtoRequest)
         {
+            if (await _serviceManager.EventService.GetByIdAsync(invitationDtoRequest.EventId) == null)
+            {
+                return NotFound(ModelState);
+            }
+            if (await _serviceManager.UserService.GetByIdAsync(invitationDtoRequest.UserId) == null)
+            {
+                return NotFound(ModelState);
+            }
             InvitationDtoResponse invitationDtoResponse = await _serviceManager.InvitationService.CreateAsync(invitationDtoRequest);
             _cache.Remove(invitationsCacheKey);
             return Ok(invitationDtoResponse);
@@ -73,6 +85,10 @@ namespace Innoloft.Controllers
         [HttpPut("{invitationId}")]
         public async Task<IActionResult> UpdateInvitation(string invitationId, [FromBody] InvitationDtoRequest invitationDtoRequest)
         {
+            if (await _serviceManager.InvitationService.GetByIdAsync(invitationId) == null)
+            {
+                return NotFound(ModelState);
+            }
             await _serviceManager.InvitationService.UpdateAsync(invitationId, invitationDtoRequest);
             _cache.Remove(invitationsCacheKey);
             return NoContent();

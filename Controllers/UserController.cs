@@ -36,7 +36,7 @@ namespace Innoloft.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserDtoResponse>>> GetInvitations([FromQuery] PaginationFilter filter)
+        public async Task<ActionResult<IEnumerable<UserDtoResponse>>> GetUsers([FromQuery] PaginationFilter filter)
         {
 
             IEnumerable<UserDtoResponse> userDtoResponses;
@@ -57,14 +57,18 @@ namespace Innoloft.Controllers
             return Ok(userDtoResponses);
         }
         [HttpGet("{userId}")]
-        public async Task<ActionResult<UserDtoResponse>> GetInvitation(string userId)
+        public async Task<ActionResult<UserDtoResponse>> GetUser(string userId)
         {
+            if (await _serviceManager.UserService.GetByIdAsync(userId) == null)
+            {
+                return NotFound(ModelState);
+            }
             UserDtoResponse UserDtoResponse = await _serviceManager.UserService.GetByIdAsync(userId);
             return Ok(UserDtoResponse);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateInvitation([FromBody] UserDtoRequest userDtoRequest)
+        public async Task<IActionResult> CreateUser([FromBody] UserDtoRequest userDtoRequest)
         {
             UserDtoResponse UserDtoResponse = await _serviceManager.UserService.CreateAsync(userDtoRequest);
             _cache.Remove(usersCacheKey);
@@ -72,14 +76,18 @@ namespace Innoloft.Controllers
         }
 
         [HttpPut("{userId}")]
-        public async Task<IActionResult> UpdateInvitation(string userId, [FromBody] UserDtoRequest userDtoRequest)
+        public async Task<IActionResult> UpdateUser(string userId, [FromBody] UserDtoRequest userDtoRequest)
         {
+            if (await _serviceManager.UserService.GetByIdAsync(userId) == null)
+            {
+                return NotFound(ModelState);
+            }
             await _serviceManager.UserService.UpdateAsync(userId, userDtoRequest);
             _cache.Remove(usersCacheKey);
             return NoContent();
         }
         [HttpDelete("{userId}")]
-        public async Task<IActionResult> DeleteInvitation(string userId)
+        public async Task<IActionResult> DeleteUser(string userId)
         {
             await _serviceManager.UserService.DeleteAsync(userId);
             _cache.Remove(usersCacheKey);

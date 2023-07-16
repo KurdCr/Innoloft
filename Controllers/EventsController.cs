@@ -70,6 +70,10 @@ namespace Innoloft.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateEvent([FromBody] EventDtoRequest eventDtoRequest)
         {
+            if (await _serviceManager.UserService.GetByIdAsync(eventDtoRequest.EventOwnerId) == null)
+            {
+                return NotFound(ModelState);
+            }
             EventDtoResponse eventDtoResponse = await _serviceManager.EventService.CreateAsync(eventDtoRequest);
             _cache.Remove(eventsListCacheKey);
             return Ok(eventDtoResponse);
@@ -126,7 +130,11 @@ namespace Innoloft.Controllers
         [Route("{eventId}/participants")]
         public async Task<IActionResult> Participate(string eventId, [FromBody] EventParticipantRequest eventParticiptantRequest)
         {
-            if (await _serviceManager.EventService.GetByIdAsync(eventId) == null)
+            if (await _serviceManager.EventService.GetByIdAsync(eventParticiptantRequest.EventId) == null)
+            {
+                return NotFound(ModelState);
+            }
+            if (await _serviceManager.UserService.GetByIdAsync(eventParticiptantRequest.UserId) == null)
             {
                 return NotFound(ModelState);
             }

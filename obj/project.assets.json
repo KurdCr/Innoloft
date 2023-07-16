@@ -4884,11 +4884,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft.csproj",
+      "projectUniqueName": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft\\Innoloft.csproj",
       "projectName": "Innoloft",
-      "projectPath": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft.csproj",
+      "projectPath": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft\\Innoloft.csproj",
       "packagesPath": "C:\\Users\\balen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\obj\\",
+      "outputPath": "C:\\Users\\balen\\Documents\\GitHub\\Innoloft\\Innoloft\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\balen\\AppData\\Roaming\\NuGet\\NuGet.Config",
